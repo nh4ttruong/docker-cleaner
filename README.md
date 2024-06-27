@@ -17,7 +17,8 @@ This script automates the process of:
 Run this script on your linux runner:
 
 ```bash
-curl -sL "https://github.com/nh4ttruong/runner-cleanup/raw/main/run.sh" | bash
+#
+KEEP_MAX_IMAGES=5 && curl -sL "https://github.com/nh4ttruong/runner-cleanup/raw/main/run.sh" | bash -s -- $KEEP_MAX_IMAGES
 ```
 
 ### Automating with Cron
@@ -32,7 +33,7 @@ Here's how to add the script to cron:
 For automatically, add it into crontab:
 
 ```bash
-@hourly curl -sL "https://github.com/nh4ttruong/runner-cleanup/raw/main/run.sh" | bash
+@hourly KEEP_MAX_IMAGES=5 && curl -sL "https://github.com/nh4ttruong/runner-cleanup/raw/main/run.sh" | bash -s -- $KEEP_MAX_IMAGES
 ```
 
 ## Related
