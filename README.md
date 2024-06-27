@@ -17,7 +17,6 @@ This script automates the process of:
 Run this script on your linux runner:
 
 ```bash
-#
 curl -sL "https://github.com/nh4ttruong/runner-cleanup/raw/main/run.sh" | bash
 ```
 
