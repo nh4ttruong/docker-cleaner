@@ -3,6 +3,8 @@
 REPOSITORIES=$(docker images --format '{{.Repository}}' | sort -u)
 KEEP_MAX_IMAGES=$1
 
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] Start cleaning up old images"
+
 for repo in $REPOSITORIES; do
     # use `tac` to reverse order to oldest first
     IMAGE_IDS=$(docker images --format '{{.ID}}' --filter=reference="$repo" | tac)
@@ -19,3 +21,5 @@ for repo in $REPOSITORIES; do
         done
     fi
 done
+
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] Finished cleaning up old images"
